@@ -1,28 +1,29 @@
 <div class="card">
     <div class="card-header">Registruoti automobilį</div>
     <div class="card-body">
-        <form>
+        <form (ngSubmit)="registrationSubmit(f)" #f="ngForm">
             <div class="mb-3">
                 <label class="form-label">Markė</label>
-                <input type="text" class="form-control" name="mark" id="">
+                <input type="text" class="form-control"  ngModel name="mark" required minlength="3" maxlength="16">
             </div>
             <div class="mb-3">
                 <label class="form-label">Modelis</label>
-                <input type="text" class="form-control" name="model" id="">
+                <input type="text" class="form-control" ngModel name="model" required minlength="2" maxlength="16">
             </div>
             <div class="mb-3">
                 <label class="form-label">Gamybos metai</label>
-                <input type="number" class="form-control" name="year" id="">
+                <input type="number" class="form-control" ngModel name="year" required min="1900" max="2022" #inputYear="ngModel">
+                <span class="help-block" *ngIf="!inputYear.valid && inputYear.touched">Automobilio gamybos metai turi būti tarp 1900 ir 2022</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Registracijos numeris</label>
-                <input type="text" class="form-control" name="regnumber" id="">
+                <input type="text" class="form-control" ngModel name="regnumber" required regnumber>
             </div>
             <div class="mb-3">
                 <label class="form-label">Telefonas</label>
-                <input type="text" class="form-control" name="phone" id="">
+                <input type="text" class="form-control" ngModel name="phone" required>
             </div>
-            <button class="btn btn-success">Registruoti automobilį</button>
+            <button type="submit" class="btn btn-success" [disabled]="!f.valid">Registruoti automobilį</button>
         </form>
     </div>
 </div>
