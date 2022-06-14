@@ -18,6 +18,8 @@ export class RegnumberValidatorDirective implements Validator{
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     let value:string=control.value;
     let patern:RegExp=/^[a-z|A-Z]{3}[0-9]{3}$/;
+   
+    
     if (patern.test(value)){
       return null;
     }else{
