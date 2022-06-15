@@ -13,12 +13,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let registration of registrations">
+                    <td> {{ registration.mark }} </td>
+                    <td> {{ registration.model }} </td>
+                    <td> {{ registration.year }} </td>
+                    <td> {{ registration.regnumber }} </td>
+                    <td> {{ registration.phone }} </td>
                     <td></td>
                 </tr>
             </tbody>

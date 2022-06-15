@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Registration } from 'src/app/models/registration';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
   selector: 'app-registration-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationListComponent implements OnInit {
 
-  constructor() { }
+  public registrations:Registration[]=[];
+
+  constructor(private registrationSevice:RegistrationService) { }
 
   ngOnInit(): void {
+    this.registrationSevice.getRegistrations().subscribe((result)=>{
+      this.registrations=result;
+    });
   }
 
 }
