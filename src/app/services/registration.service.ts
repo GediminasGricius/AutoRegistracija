@@ -13,4 +13,8 @@ export class RegistrationService {
   public addRegistration(registration:Registration){
     return this.http.post(this.url+"registrations.json",registration);
   }
+
+  public getRegistrations(){
+    return this.http.get<{[key:string]:Registration}>(this.url+"registrations.json");
+  }
 }
