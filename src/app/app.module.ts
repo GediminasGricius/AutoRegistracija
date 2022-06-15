@@ -8,10 +8,12 @@ import { RegistrationNewComponent } from './components/registration-new/registra
 import { RegnumberValidatorDirective } from './directive/regnumber-validator.directive';
 import { RegistrationListComponent } from './components/registration-list/registration-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { RegistrationEditComponent } from './components/registration-edit/registration-edit.component';
 
 const routes:Routes=[
   {path: '', component:RegistrationListComponent},
-  {path: 'registrationNew', component:RegistrationNewComponent}
+  {path: 'registrationNew', component:RegistrationNewComponent},
+  {path: 'registrationEdit/:id', component:RegistrationEditComponent}
 ]
 
 @NgModule({
@@ -19,7 +21,8 @@ const routes:Routes=[
     AppComponent,
     RegistrationNewComponent,
     RegnumberValidatorDirective,
-    RegistrationListComponent
+    RegistrationListComponent,
+    RegistrationEditComponent
   ],
   imports: [
     BrowserModule,

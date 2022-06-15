@@ -19,7 +19,10 @@
                     <td> {{ registration.year }} </td>
                     <td> {{ registration.regnumber }} </td>
                     <td> {{ registration.phone }} </td>
-                    <td></td>
+                    <td>
+                        <a [routerLink]="['/registrationEdit',registration.id]" class="btn btn-info">Redaguoti</a>
+
+                    </td>
                 </tr>
             </tbody>
         </table>

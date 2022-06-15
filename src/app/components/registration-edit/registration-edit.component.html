@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">Redaguojamas automobilis</div>
+    <div class="card-body">
+        <form (ngSubmit)="onUpdate()" #f="ngForm">
+            <div class="mb-3">
+                <label class="form-label">Markė</label>
+                <input type="text" class="form-control"  ngModel name="mark" required minlength="3" maxlength="16" [(ngModel)]="registration.mark">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Modelis</label>
+                <input type="text" class="form-control" ngModel name="model" required minlength="2" maxlength="16" [(ngModel)]="registration.model">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gamybos metai</label>
+                <input type="number" class="form-control" ngModel name="year" required min="1900" max="2022" #inputYear="ngModel" [(ngModel)]="registration.year">
+                <span class="help-block" *ngIf="!inputYear.valid && inputYear.touched">Automobilio gamybos metai turi būti tarp 1900 ir 2022</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Registracijos numeris</label>
+                <input type="text" class="form-control" ngModel name="regnumber" required regnumber [(ngModel)]="registration.regnumber">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefonas</label>
+                <input type="text" class="form-control" ngModel name="phone" required [(ngModel)]="registration.phone">
+            </div>
+            <button type="submit" class="btn btn-info">Išsaugoti pakeitimus</button>
+            <a routerLink="" class="btn btn-success float-end">Atšaukti</a>
+        </form>
+    </div>
+</div>
