@@ -40,4 +40,8 @@ export class RegistrationService {
     return this.http.patch(this.url+"registrations/"+registration.id+".json", registration);
   }
 
+  public deleteRegistration(id:string){
+    return this.http.delete(this.url+"registrations/"+id+".json");
+  }
+
 }

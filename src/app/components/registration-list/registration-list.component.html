@@ -20,11 +20,30 @@
                     <td> {{ registration.regnumber }} </td>
                     <td> {{ registration.phone }} </td>
                     <td>
-                        <a [routerLink]="['/registrationEdit',registration.id]" class="btn btn-info">Redaguoti</a>
-
+                        <a [routerLink]="['/registrationEdit',registration.id]" class="btn btn-info me-3">Redaguoti</a>
+                        <button class="btn btn-danger" (click)="onDeleteRegistration(registration.id)">Ištrinti</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+<!-- 
+<div class="modal" tabindex="-1"  style="display: block; background-color: rgba(0,0,0,.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Įrašo trynimas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Ar tikrai norite ištrinti įrašą.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atšaukti trynimą</button>
+          <button type="button" class="btn btn-primary">Ištrinti</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->

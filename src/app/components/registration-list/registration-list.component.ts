@@ -13,10 +13,21 @@ export class RegistrationListComponent implements OnInit {
 
   constructor(private registrationSevice:RegistrationService) { }
 
-  ngOnInit(): void {
+  private loadRegistrations(){
     this.registrationSevice.getRegistrations().subscribe((result)=>{
       this.registrations=result;
     });
+  }
+  ngOnInit(): void {
+    this.loadRegistrations();
+  }
+
+  public onDeleteRegistration(id:string|null){
+    if (id!=null){
+      this.registrationSevice.deleteRegistration(id).subscribe(()=>{
+        this.loadRegistrations();
+      });
+    }
   }
 
 }
