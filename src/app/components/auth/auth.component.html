@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-md-6 offset-md-3 col-xs-12 mt-5">
         <div class="card">
-            <div class="card-header">Registracija</div>
+            <div class="card-header">{{ (isLoginMode)?"Prisijunkite prie sistemos":"Registruokitės" }}</div>
             <div class="card-body">
+               <div class="alert alert-danger" *ngIf="error!=''">{{ error }}</div>
                 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
                     <div class="mb-3">
                         <label for="" class="form-label">El. pašto adresas:</label>
@@ -10,9 +11,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Slaptažodis:</label>
-                        <input type="password" class="form-control" ngModel name="password" minlength="6" required>
+                        <input type="password" class="form-control" ngModel name="password"  required>
                     </div>
-                    <button type="submit" class="btn btn-info" >Registruotis</button>
+                    <button type="submit" class="btn btn-success" >
+                        {{ (isLoginMode)?"Prisijungti":"Registruotis" }}
+                    </button>
+
+                    <button type="button" class="btn btn-info float-end" (click)="isLoginMode=!isLoginMode" >
+                        {{ (!isLoginMode)?"Turite paskyrą? Prisijunkite.":"Neturite paskyros? Registruokitės." }}
+                    </button>
                 </form>
             </div>
         </div>
