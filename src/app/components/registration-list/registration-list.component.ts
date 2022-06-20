@@ -24,6 +24,9 @@ export class RegistrationListComponent implements OnInit {
   ngOnInit(): void {
     this.loadRegistrations();
     this.user=this.auth.user;
+    this.auth.userUpdated.subscribe(()=>{
+      this.user=this.auth.user;
+    })
   }
 
   public onDeleteRegistration(id:string|null){

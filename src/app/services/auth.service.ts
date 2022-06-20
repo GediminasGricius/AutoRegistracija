@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { User } from '../models/user';
 
@@ -12,10 +12,12 @@ export class AuthService {
   private readonly url="https://identitytoolkit.googleapis.com/v1/accounts";
 
   public user:User|null=null;
+  public userUpdated=new EventEmitter();
 
   private successLoginFun=(response:User)=>{
     this.user=response;
     localStorage.setItem("user",JSON.stringify(this.user));
+    this.userUpdated.emit();
   };
 
   constructor(private http:HttpClient) { }
@@ -41,6 +43,11 @@ export class AuthService {
     if (data!=null){
       this.user=JSON.parse(data);
     }
+  }
+  public logOut(){
+    this.user=null;
+    localStorage.removeItem("user");
+    this.userUpdated.emit();
   }
 
 }

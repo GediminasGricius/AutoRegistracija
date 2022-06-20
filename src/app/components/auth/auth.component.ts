@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class AuthComponent implements OnInit {
   public isLoginMode=true;
 
   private errorFunc=(response:any)=>{
+    console.log(response);
     switch(response.error.error.message){
       case "EMAIL_EXISTS":
               this.error="Toks email egzistuoja";
@@ -33,7 +35,7 @@ export class AuthComponent implements OnInit {
     }
   };
 
-  private successFunc=(response:any)=>{
+  private successFunc=(response:User)=>{
     
     this.router.navigate(["/"]);
   };

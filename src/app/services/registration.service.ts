@@ -44,4 +44,6 @@ export class RegistrationService {
     return this.http.delete(this.url+"registrations/"+id+".json");
   }
 
+  
+
 }

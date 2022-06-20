@@ -1,8 +1,7 @@
 <div class="card">
     <div class="card-header">Registruoti automobilį</div>
     <div class="card-body">
-        <div *ngIf="user!=null">Jūs esate prisijungęs kaip: {{ user?.email }}</div>
-        <div *ngIf="user==null">Jūs nesate prisijungęs</div>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -11,7 +10,7 @@
                     <th>Metai</th>
                     <th>Registracijos nr.</th>
                     <th>Tel. nr.</th>
-                    <th>Veiksmai</th>
+                    <th *ngIf="user!=null">Veiksmai</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,7 +20,7 @@
                     <td> {{ registration.year }} </td>
                     <td> {{ registration.regnumber }} </td>
                     <td> {{ registration.phone }} </td>
-                    <td>
+                    <td *ngIf="user!=null">
                         <a [routerLink]="['/registrationEdit',registration.id]" class="btn btn-info me-3">Redaguoti</a>
                         <button class="btn btn-danger" (click)="onDeleteRegistration(registration.id)">Ištrinti</button>
                     </td>
