@@ -1,5 +1,5 @@
 <div class="col-md-12 mb-3">
-    <a class="btn btn-success me-3" routerLink="/registrationNew">Pridėti naują registraciją</a>
+    <a *ngIf="user!=null" class="btn btn-success me-3" routerLink="/registrationNew">Pridėti naują registraciją</a>
     <a class="btn btn-success me-3" routerLink="/">Registracijų sąrašas</a>
 
     <a *ngIf="user==null" class="btn btn-success float-end" routerLink="/register">Prisijungti</a>
