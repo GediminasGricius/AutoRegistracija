@@ -18,6 +18,7 @@ export class AuthService {
     this.user=response;
     localStorage.setItem("user",JSON.stringify(this.user));
     this.userUpdated.emit();
+    console.log(this.user);
   };
 
   constructor(private http:HttpClient) { }
